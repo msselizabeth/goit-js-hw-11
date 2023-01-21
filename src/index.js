@@ -10,7 +10,7 @@ const observerGuard = document.querySelector(".js-guard");
 let page = 1;
 let pages = 1;
 let previousSearchValue = '';
-let isInfinityLoad = null;
+
 const intersectionObserverOptions = {
     root: null,
     rootMargin: '500px',
@@ -47,7 +47,7 @@ function onLoad() {
 
 function handleIntersection(entries, observer) {
      entries.forEach(entry => {
-    if (entry.isIntersecting && previousSearchValue)  onLoadMore();
+    if (entry.isIntersecting && previousSearchValue)  onLoad();
     if (pages < page) {
         observer.unobserve(observerGuard);
     }
@@ -62,17 +62,23 @@ async function renderGalleryItems(searchRequest, searchPage) {
         const totalFoundImages = response.data.total;
         pages = Math.round(totalFoundImages / foundImagesQty);
 
+        createGalleryItemsMarkup(arrayOfImages, gallery);
+        loadMoreBtn.classList.add('show');
+
         if (!totalFoundImages) {
             return Notify.info('Sorry, there are no images matching your search query. Please try again.');
         };
-        if (!arrayOfImages.length) {
-           return Notify.failure("We're sorry, but you've reached the end of search results.");
+        if (arrayOfImages.length < 40) {
+            loadMoreBtn.classList.remove('show');
+            loadMoreBtn.classList.add('hide');
+            Notify.failure("We're sorry, but you've reached the end of search results.");
         };
+       
         if (page - 1 === 1) {
            Notify.success(`We found ${foundImagesQty} images.`);
         };
-        createGalleryItemsMarkup(arrayOfImages, gallery);
-        loadMoreBtn.classList.replace('hide', 'show');
+        console.log(arrayOfImages.length);
+       
        
     } catch (error) {
         console.error(error.stack);  
