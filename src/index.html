@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <link rel="stylesheet" href="./scss/index.scss" />
+</head>
+
+<body>
+  <div class="search-bar">
+    <div class="container">
+      <form class="search-form" id="search-form">
+        <input class="search-form__input" type="text" name="searchQuery" autocomplete="off"
+          placeholder="Search images..." />
+        <button class="search-form__btn" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="js-gallery gallery"></div>
+    <div class="js-guard"></div>
+    <div class="load"> 
+      <button type="button" class="js-load-more load-more hide">Load more</button>
+    </div>
+  </div>
+
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>

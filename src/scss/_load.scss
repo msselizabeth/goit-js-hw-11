@@ -1,0 +1,33 @@
+.load-more {
+    width: 120px;
+    height: 30px;
+  
+    font-size: 16px;
+    color:#fff;
+    text-align: center;
+
+    background-color: rgba(135, 136, 137, 0.7);
+    &:hover{
+      background-color:rgba(40, 42, 43, 0.7);
+    }
+
+  }
+  
+  .load-more.hide {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .load-more.show {
+    visibility: visible;
+    pointer-events: all;
+  }
+  
+  .load {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    row-gap: 5px;
+    margin-top: 5px;
+  }
+  

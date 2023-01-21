@@ -1,0 +1,58 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 70px;
+  
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .photo-card {
+    display: flex;
+    flex-direction: column;
+    width: calc((100% - 5px) / 2);
+    height: 250px;
+  
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 2px solid rgb(0, 0, 0);
+  
+    @media screen and (min-width: 768px) {
+      width: calc((100% - 10px) / 3);
+    }
+  
+    @media screen and (min-width: 1200px) {
+      width: calc((100% - 25px) / 4);
+    }
+  }
+  
+  .photo-card > img {
+    object-fit: cover;
+    width: 420px;
+    height: 220px;
+  }
+  
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  
+    padding: 4px 8px;
+  
+    font-size: 13px;
+   
+    color: #fff;
+  
+    background-color: rgba(40, 42, 43, 0.7);
+  
+    @media screen and (min-width: 768px) {
+      flex-basis: 30px;
+    }
+    @media screen and (min-width: 1200px) {
+      flex-basis: 50px;
+    }
+  }
